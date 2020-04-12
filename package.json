@@ -1,7 +1,6 @@
 {
   "name": "vue-first",
   "version": "0.1.0",
-  "homepage": "./",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
