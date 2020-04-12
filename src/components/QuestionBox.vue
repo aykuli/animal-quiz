@@ -9,7 +9,7 @@
 
       <b-list-group>
         <b-list-group-item
-          v-for="(answer, i) in answers" 
+          v-for="(answer, i) in shuffledAnswers" 
           :key="answer"
           @click="selectAnswer(i)"
           :class="[answerClass(i)]"

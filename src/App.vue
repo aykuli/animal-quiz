@@ -9,7 +9,7 @@
       <b-row>
         <b-col sm="6" offset="3">
           <QuestionBox
-            v-if="questions.length > 0"
+            v-if="questions.length > 0 && numTotal <= questions.length"
             :currentQuestion="questions[index]" 
             :next="next"
             :increment="increment"
@@ -21,7 +21,8 @@
     <b-container class="bv-example-row">
       <b-row>
         <b-col sm="6" offset="3">
-          <Result 
+          <Result
+            v-if="questions.length > 0 && numTotal === questions.length"
             :numCorrect="numCorrectAnswers"
             :numTotal="numTotal"
             :questions="questions"
