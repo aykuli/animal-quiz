@@ -8,6 +8,9 @@
     <b-container class="bv-example-row">
       <b-row>
         <b-col sm="6" offset="3">
+          <Spinner
+            v-if="questions.length === 0"
+          />          
           <QuestionBox
             v-if="questions.length > 0 && index < questions.length"
             :currentQuestion="questions[index]" 
@@ -37,16 +40,18 @@
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import QuestionBox from './components/QuestionBox.vue'
-import Result from './components/Result.vue'
+import Header from './components/Header.vue';
+import QuestionBox from './components/QuestionBox.vue';
+import Result from './components/Result.vue';
+import Spinner from './components/Spinner.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
     QuestionBox,
-    Result
+    Result,
+    Spinner
   },
   data() {
     return {
@@ -67,7 +72,6 @@ export default {
       this.numTotal++;
     },
     startAgain() {
-      console.log('startAgain');
       this.questions = [];
       this.index = 0;
       this.numCorrectAnswers = 0;
