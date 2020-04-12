@@ -105,6 +105,11 @@ export default {
 </script>
 
 <style scoped>
+.question-box-container {
+  width: 100%;
+  max-width: 550px;
+}
+
 .list-group {
   margin-bottom: 30px;
 }

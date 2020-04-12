@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="question-box-container">
     <b-jumbotron header="Your result" lead="about knowing of animals">
       <p class="result">Correct answers: {{ numCorrect }}</p>
       <p class="result">Total number of questions: {{ numTotal }}</p>
@@ -49,6 +49,11 @@ export default {
 </script>
 
 <style scoped>
+  .question-box-container {
+    width: 100%;
+    max-width: 550px;
+  }
+
   .result {
     text-align: left;
   }

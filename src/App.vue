@@ -5,35 +5,24 @@
       :numTotal="numTotal"
     />
 
-    <b-container class="bv-example-row">
-      <b-row>
-        <b-col sm="6" offset="3">
-          <Spinner
-            v-if="questions.length === 0"
-          />          
-          <QuestionBox
-            v-if="questions.length > 0 && index < questions.length"
-            :currentQuestion="questions[index]" 
-            :next="next"
-            :increment="increment"
-          />
-        </b-col>
-      </b-row>
-    </b-container>
-
-    <b-container class="bv-example-row">
-      <b-row>
-        <b-col sm="6" offset="3">
-          <Result
-            v-if="questions.length > 0 && index >= questions.length"
-            :numCorrect="numCorrectAnswers"
-            :numTotal="numTotal"
-            :questions="questions"
-            :startAgain="startAgain"
-          />
-        </b-col>
-      </b-row>
-    </b-container>    
+    <div class='container'>
+      <Spinner
+        v-if="questions.length === 0"
+      />          
+      <QuestionBox
+        v-if="questions.length > 0 && index < questions.length"
+        :currentQuestion="questions[index]" 
+        :next="next"
+        :increment="increment"
+      />
+      <Result
+        v-if="questions.length > 0 && index >= questions.length"
+        :numCorrect="numCorrectAnswers"
+        :numTotal="numTotal"
+        :questions="questions"
+        :startAgain="startAgain"
+      />
+    </div>
 
   </div>
 </template>
@@ -100,5 +89,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
 }
 </style>
