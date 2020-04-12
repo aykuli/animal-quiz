@@ -26,7 +26,13 @@
       >
         Submit
         </b-button>
-      <b-button @click="next" variant="success">Next</b-button>
+      <b-button 
+        @click="next" 
+        variant="success"
+        :disabled="!answered"
+      >
+        Next
+      </b-button>
     </b-jumbotron>
   </div>
 </template>
@@ -67,11 +73,9 @@ export default {
   },
   methods: {
     selectAnswer(index) {
-      console.log('selectAnswer')
       this.selectedIndex = index;
     },
     submitAnswer() {
-      console.log('submitAnswer')
       let isCorrect = false;
       if (this.selectedIndex === this.correctIndex) {
         isCorrect = true;
@@ -80,7 +84,6 @@ export default {
       this.increment(isCorrect);
     },
     shuffleAnswers() {
-      console.log('shuffleAnswers')
       const answersToShuffle= [...this.currentQuestion.incorrect_answers, this.currentQuestion.correct_answer];
       this.shuffledAnswers = _.shuffle(answersToShuffle);
       this.correctIndex = this.shuffledAnswers.indexOf(this.currentQuestion.correct_answer)

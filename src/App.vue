@@ -18,18 +18,33 @@
       </b-row>
     </b-container>
 
+    <b-container class="bv-example-row">
+      <b-row>
+        <b-col sm="6" offset="3">
+          <Result 
+            :numCorrect="numCorrectAnswers"
+            :numTotal="numTotal"
+            :questions="questions"
+          />
+        </b-col>
+      </b-row>
+    </b-container>
+    
+
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
 import QuestionBox from './components/QuestionBox.vue'
+import Result from './components/Result.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
-    QuestionBox
+    QuestionBox,
+    Result
   },
   data() {
     return {
@@ -44,7 +59,6 @@ export default {
       this.index++;
     },
     increment(isCorrect) {
-      console.log('increment')
       if (isCorrect) {
         this.numCorrectAnswers++;
       }
