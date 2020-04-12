@@ -9,7 +9,7 @@
       <b-row>
         <b-col sm="6" offset="3">
           <QuestionBox
-            v-if="questions.length > 0 && numTotal <= questions.length"
+            v-if="questions.length > 0 && index < questions.length"
             :currentQuestion="questions[index]" 
             :next="next"
             :increment="increment"
@@ -22,10 +22,11 @@
       <b-row>
         <b-col sm="6" offset="3">
           <Result
-            v-if="questions.length > 0 && numTotal === questions.length"
+            v-if="questions.length > 0 && index >= questions.length"
             :numCorrect="numCorrectAnswers"
             :numTotal="numTotal"
             :questions="questions"
+            :startAgain="startAgain"
           />
         </b-col>
       </b-row>
@@ -64,14 +65,26 @@ export default {
         this.numCorrectAnswers++;
       }
       this.numTotal++;
+    },
+    startAgain() {
+      console.log('startAgain');
+      this.questions = [];
+      this.index = 0;
+      this.numCorrectAnswers = 0;
+      this.numTotal = 0;
+
+      this.fetching();
+    },
+    fetching() {
+      const url = 'https://opentdb.com/api.php?amount=2&category=27&type=multiple'
+      fetch(url, {method: 'get'})
+      .then(res=>res.json()).then(data=> {
+        this.questions = data.results;
+      });
     }
   },
   mounted: function () {
-    const url = 'https://opentdb.com/api.php?amount=10&category=27&type=multiple'
-    fetch(url, {method: 'get'})
-    .then(res=>res.json()).then(data=> {
-      this.questions = data.results;
-    });
+    this.fetching();
   }
 }
 </script>
