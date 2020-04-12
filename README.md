@@ -1,4 +1,7 @@
-# vue-first
+# animal-quiz
+Let's play! Try to guess the right answer in Animal-quiz!
+
+[Deploy](https://aykuli.github.io/animal-quiz/)
 
 ## Project setup
 ```
