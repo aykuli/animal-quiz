@@ -3,7 +3,8 @@ package-lock.json
 yarn.lock
 # dependencies
 /node_modules
-build
+/build
+/dist
 /.pnp
 .pnp.js
 
