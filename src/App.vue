@@ -33,8 +33,7 @@
           />
         </b-col>
       </b-row>
-    </b-container>
-    
+    </b-container>    
 
   </div>
 </template>
@@ -80,7 +79,7 @@ export default {
       this.fetching();
     },
     fetching() {
-      const url = 'https://opentdb.com/api.php?amount=2&category=27&type=multiple'
+      const url = 'https://opentdb.com/api.php?amount=10&category=27&type=multiple'
       fetch(url, {method: 'get'})
       .then(res=>res.json()).then(data=> {
         this.questions = data.results;

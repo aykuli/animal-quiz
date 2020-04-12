@@ -1,10 +1,24 @@
 <template>
     <div class="d-flex justify-content-center align-items-center">
-      <b-spinner class="spinner green" label="Large Spinner" type="grow"></b-spinner>
-      <b-spinner class="spinner blue" label="Large Spinner" type="grow"></b-spinner>
-      <b-spinner class="spinner red" label="Large Spinner" type="grow"></b-spinner>
+      <b-spinner
+        v-for="color in colors"
+        :class="color"
+        :key="color"
+        abel="Large Spinner"
+        type="grow"
+      ></b-spinner>
     </div>
 </template>
+
+<script>
+export default {
+  data() {
+      return {
+        colors: ['spinner green', 'spinner blue', 'spinner red']
+      }
+    }
+}
+</script>
 
 <style scoped>
   .spinner {
