@@ -2,7 +2,7 @@
   <div class="question-box-container">
     <b-jumbotron>
       <template v-slot:lead>
-        <div v-html="currentQuestion.question">{{ currentQuestion.question}}</div>
+        <div v-html="currentQuestion.question" />
       </template>
 
       <hr class="my-4">
@@ -13,9 +13,8 @@
           :key="answer"
           @click="selectAnswer(i)"
           :class="[answerClass(i)]"
-        >
-          {{ answer }}
-        </b-list-group-item>
+          v-html="answer"
+        />
       </b-list-group>
 
 

@@ -16,15 +16,16 @@
           :key="question + i"
         >
           <div class="question">
-            {{ i + 1 }}) {{ question.question }}
+            <span>{{ i + 1 }}) </span>
+            <span v-html="question.question" />
           </div>
           <div class='property'>
             <span class="property">Answer: </span>
-            <span class="value-answer">{{ question.correct_answer }}</span>
+            <span class="value-answer" v-html="question.correct_answer" />
           </div>
           <div class='property'>
             <span class="property">Difficulty: </span>
-            <span class="value">{{ question.difficulty }}</span>
+            <span class="value" v-html="question.difficulty" />
           </div>          
         </b-list-group-item>
       </b-list-group>
